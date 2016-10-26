@@ -40,18 +40,17 @@ var factorial = function(input){
 };
 
 //create backwardString for palindrome functions
-var backwardString = "";
 
 var createBackwardString = function(inputString) {
+  backwardString = "";
+
   for (i = inputString.length - 1; i >= 0; i--) {
   backwardString += inputString[i];
-  console.log(backwardString);
-
   };
-  console.log(backwardString);
 };
+
 // palindrome tester
-var outputString = "";
+
 var palindromeTest = function(inputString, backwardString) {
   if (inputString === backwardString) {
   return "Your string is a palindrome";
