@@ -2,11 +2,18 @@ $(document).ready(function() {
 //factorial jQuery
   $("button#factorial").click(function() {
     var input = parseInt($("#input").val());
-    console.log(input);
     output = factorial(input);
-    $("#output").append(output);
+    $("#output").text(output);
   });
-  //palidrome test jQuery
+
+  //prime tester jQuery
+    $("button#prime").click(function() {
+      var input = parseInt($("#input").val());
+      output = prime(input);
+      $("#output").text(output);
+    });
+
+  //palindrome test jQuery
 
   $("button#palindrome").click(function() {
     inputString = $("#inputString").val();
@@ -14,7 +21,7 @@ $(document).ready(function() {
     outputString = palindromeTest(inputString, backwardString);
     $("#outputString").text(outputString);
   });
-//palindrom builder jQuery
+//palindrome builder jQuery
   $("button#palindromeBuilder").click(function() {
     inputString = $("#inputString").val();
     createBackwardString(inputString);
@@ -23,7 +30,7 @@ $(document).ready(function() {
   });
 
 //refresh jQuery
-  $("#refresh").click(function(){
+  $(".refresh").click(function(){
     location.reload();
   });
 
@@ -38,6 +45,21 @@ var factorial = function(input){
   };
   return total;
 };
+
+// prime logic
+var prime = function(input) {
+  isPrime = true;
+  for (i = 2; i < input; i++) {
+    var remainder = input % i;
+    if (remainder === 0) {
+      isPrime = false;
+      return "Not Prime"
+    }
+  }
+
+  return "Prime";
+};
+
 
 //create backwardString for palindrome functions
 

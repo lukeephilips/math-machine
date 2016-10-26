@@ -9,24 +9,37 @@
   </head>
   <body>
     <div class="container">
-      <h1>Math machine</h1>
-      <button type="button" id="factorial" class="btn">Factorial</button>
-      <button type="button" id="prime" class="btn">Prime</button>
-      <input class="well" type="number" id="input">
-      <div class="well" id="output">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3>Math machine</h3>
+        </div>
+        <div class="panel-body">
+          <input class="form-control" type="number" id="input">
+          <button type="button" id="factorial" class="btn">Factorial</button>
+          <button type="button" id="prime" class="btn">Prime</button>
+          <button type="button" class="refresh btn">Again!</button>
+        </div>
+        <div class="panel-footer">
+          <div id="output">
+          </div>
+        </div>
       </div>
 
-      <h1>string machine</h1>
-      <button type="button" id="palindrome" class="btn">Is it a palindrome?</button>
-      <input class="well" type="text" id="inputString">
-      <button type="button" id="palindromeBuilder" class="btn">Make it a palindrome!</button>
-
-      <div class="well" id="outputString">
-      </div>
-
-      <h1>Do it again</h1>
-      <button type="button" id="refresh" class="btn">Again!</button>
-
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3>String machine</h3>
+          </div>
+          <div class="panel-body">
+            <input class="form-control" type="text" id="inputString">
+            <button type="button" id="palindrome" class="btn">Is it a palindrome?</button>
+            <button type="button" id="palindromeBuilder" class="btn">Make it a palindrome!</button>
+            <button type="button" class="refresh btn">Again!</button>
+          </div>
+          <div class="panel-footer">
+            <div id="outputString">
+            </div>
+          </div>
+        </div>
     </div>
   </body>
 </html>
