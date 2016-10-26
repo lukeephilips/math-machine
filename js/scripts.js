@@ -1,72 +1,66 @@
 $(document).ready(function() {
-
+//factorial jQuery
   $("button#factorial").click(function() {
     var input = parseInt($("#input").val());
     console.log(input);
     output = factorial(input);
     $("#output").append(output);
   });
+  //palidrome test jQuery
 
   $("button#palindrome").click(function() {
     inputString = $("#inputString").val();
-    // console.log(inputString);
-    outputString = stringToArray(inputString);
-    // palindromeTest(inputArray);
+    createBackwardString(inputString);
+    outputString = palindromeTest(inputString, backwardString);
+    $("#outputString").text(outputString);
+  });
+//palindrom builder jQuery
+  $("button#palindromeBuilder").click(function() {
+    inputString = $("#inputString").val();
+    createBackwardString(inputString);
+    outputString = makePalindrome(inputString, backwardString);
+    $("#outputString").text(newPalindrome);
   });
 
+//refresh jQuery
   $("#refresh").click(function(){
     location.reload();
   });
 
 });
 
-// factorial machine
-var output = 0;
-
+// factorial logic
 var factorial = function(input){
   var total = 1;
 
   for (i = input; i>0; i--) {
-    console.log(i);
-  total = total * i;
+    total *= i;
   };
   return total;
 };
 
-// palindrome test
-var outputString = "";
-var inputArray = [];
-var inputString = "";
-var backwardArray = [];
+//create backwardString for palindrome functions
 var backwardString = "";
-var stringToArray = function(inputString) {
-  for (i = 0; i<inputString.length; i++) {
-    inputArray.push(inputString[i]);
+
+var createBackwardString = function(inputString) {
+  for (i = inputString.length - 1; i >= 0; i--) {
+  backwardString += inputString[i];
   };
-  for (i = inputArray.length - 1; i >= 0; i--) {
-    backwardArray.push(inputArray[i]);
-  console.log(backwardArray);
-  };
-  backwardString = backwardArray.join("");
+};
+// palindrome tester
+var outputString = "";
+var palindromeTest = function(inputString, backwardString) {
+  createBackwardString(inputString);
+
   if (inputString === backwardString) {
-    $("#outputString").text("Your string is a palindrome");
-  } else {
-    $("#outputString").text("Your string is not a palindrome");
-  }
+  return "Your string is a palindrome";
+}
+else {
+  return "Your string is not a palindrome";
+}
 };
 
-// var inputArray = ["a", "b", "c", "d"];
-// var temp = "";
-// var backwardArray = function(inputArray) {
-//   for (i = inputArray.length - 1; i >= 0; i--) {
-//     backWard.push(inputArray[i]);
-    // temp = inputArray[i];
-    // inputArray[i] = inputArray[inputArray.length-(1+i)];
-    // inputArray[inputArray.length-(1+i)] = inputArray[i];
-
-    // alert(inputArray);
-
-//   };
-//   // console.log(newArray);
-// };
-// alert(inputArray);
+//palindrome builder
+var makePalindrome = function(inputString, backwardString) {
+   newPalindrome = inputString + backwardString;
+};
